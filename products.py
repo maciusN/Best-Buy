@@ -40,6 +40,11 @@ class Product:
         print(f"{self.name}, Price: {self.price}, Quantity: {self.quantity}")
 
     def buy(self, quantity) -> float:
-        self.quantity = self.quantity - quantity
-        return float(self.price)
+        if not isinstance(quantity, int) or quantity <= 0:
+            raise Exception("Invalid Quantity")
+        if quantity > self.quantity:
+            raise Exception("Insufficient Quantity")
+        total_price = quantity * self.price
+        self.set_quantity(self.quantity - quantity)
+        return total_price
 
