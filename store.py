@@ -1,20 +1,49 @@
 import products
 
-
 class Store:
     def __init__(self, products):
+        """
+        Initialize the store with a list of products.
+
+        Args:
+            products (list): A list of Product objects.
+        """
         self.products = products
 
     def add_product(self, product):
+        """
+        Add a product to the store's product list.
+
+        Args:
+            product (Product): The product to be added.
+        """
         self.products.append(product)
 
     def remove_product(self, product):
+        """
+        Remove a product from the store's product list.
+
+        Args:
+            product (Product): The product to be removed.
+        """
         self.products.remove(product)
 
     def get_total_quantity(self) -> int:
+        """
+        Get the total number of products in the store.
+
+        Returns:
+            int: The total number of products.
+        """
         return len(self.products)
 
     def get_all_products(self):
+        """
+        Get a list of all active products in the store.
+
+        Returns:
+            list: A list of active products.
+        """
         self.list = []
         for product in self.products:
             if product.active == True:
@@ -22,6 +51,18 @@ class Store:
         return self.list
 
     def order(self, shopping_list):
+        """
+        Process an order from the shopping list and calculate the total price.
+
+        Args:
+            shopping_list (list of tuples): A list of tuples where each tuple contains a product and its quantity.
+
+        Raises:
+            ValueError: If the product is not available in the store or is not active.
+
+        Returns:
+            float: The total price of the order.
+        """
         sum_price = 0
         for product, quantity in shopping_list:
             if product not in self.products or not product.is_active():
@@ -29,11 +70,3 @@ class Store:
                     f"The product '{product.name}' is not available in the store.")
             sum_price += product.buy(quantity)
         return sum_price
-
-
-bose = products.Product("Bose QuietComfort Earbuds", price=250, quantity=500)
-mac = products.Product("MacBook Air M2", price=1450, quantity=100)
-
-store = Store([bose, mac])
-price = store.order([(bose, 5), (mac, 30), (bose, 10)])
-print(f"Order cost: {price} dollars.")
