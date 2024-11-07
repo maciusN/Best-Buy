@@ -47,4 +47,3 @@ class Product:
         total_price = quantity * self.price
         self.set_quantity(self.quantity - quantity)
         return total_price
-
