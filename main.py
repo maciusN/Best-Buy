@@ -30,8 +30,7 @@ def main():
         if user_input == 1:
             print("------")
             for product in product_list:
-                print(f"{product.name}, Price: ${
-                    product.price}, Quantity: {product.quantity}")
+                print(f"{product.name}, Price: ${product.price}, Quantity: {product.quantity}")
             print("------")
             print()
         elif user_input == 2:
@@ -43,8 +42,7 @@ def main():
             total_payment = 0
             print("------")
             for product in product_list:
-                print(f"{product.name}, Price: ${
-                    product.price}, Quantity: {product.quantity}")
+                print(f"{product.name}, Price: ${product.price}, Quantity: {product.quantity}")
             print("------")
             print("When you want to finish order, enter empty text.")
             while True:
