@@ -3,7 +3,9 @@ import store
 
 
 def main():
-
+    """
+    Main function to initialize the store with products and display the store menu.
+    """
     product_list = [products.Product("MacBook Air M2", price=1450, quantity=100),
                     products.Product("Bose QuietComfort Earbuds",
                                      price=250, quantity=500),
