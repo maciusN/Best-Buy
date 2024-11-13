@@ -51,15 +51,15 @@ def main():
                 print()
                 user_input_product = input("Which product do you want? ")
                 user_input_amount = input("What amount do you want? ")
-                if user_input_product == "1" or user_input_product == "MacBook Air M2":
+                if user_input_product in ("1","MacBook Air M2"):
                     total_payment += product_list[0].price * \
                         int(user_input_amount)
                     print("Product added to list!")
-                elif user_input_product == "2" or user_input_product == "Bose QuietComfort Earbuds":
+                elif user_input_product in ("2", "Bose QuietComfort Earbuds"):
                     total_payment += product_list[1].price * \
                         int(user_input_amount)
                     print("Product added to list!")
-                elif user_input_product == "3" or user_input_product == "Google Pixel 7":
+                elif user_input_product in ("3", "Google Pixel 7"):
                     total_payment += product_list[2].price * \
                         int(user_input_amount)
                     print("Product added to list!")

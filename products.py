@@ -1,4 +1,13 @@
 class Product:
+    """
+    A class to represent a product in the store.
+
+    Attributes:
+    name (str): Name of the product.
+    price (int, float): Price of the product.
+    quantity (int): Quantity of the product in stock.
+    active (bool): Boolean indicating if the product is active.
+    """
     def __init__(self, name, price, quantity, active=True):
         """
         Initialize a new product instance.
@@ -88,3 +97,4 @@ class Product:
         total_price = quantity * self.price
         self.set_quantity(self.quantity - quantity)
         return total_price
+    
