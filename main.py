@@ -14,7 +14,7 @@ def main():
 
     best_buy = store.Store(product_list)
 
-    def start(store_obj):
+    def start():
         menu = """
         Store Menu
         ----------
@@ -25,7 +25,7 @@ def main():
         print(menu)
 
     while True:
-        start(best_buy)
+        start()
 
         user_input = int(input("Please choose a number: "))
 
