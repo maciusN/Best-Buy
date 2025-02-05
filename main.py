@@ -47,11 +47,12 @@ def main():
         user_input = int(input("Please choose a number: "))
 
         if user_input == 1:
-            list_all_products(product_list)
+            for product in best_buy.get_all_products():
+                product.show()
         elif user_input == 2:
-            show_total_amount_in_store(product_list)
+            best_buy.get_total_quantity()
         elif user_input == 3:
-            
+            pass
         elif user_input == 4:
             break
 

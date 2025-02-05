@@ -33,7 +33,10 @@ class Store:
         Returns:
             int: The total number of products.
         """
-        return len(self.products)
+        total_amount = 0
+        for product in self.products:
+            total_amount += product.quantity
+        print(f"Total of {total_amount} items in store")
 
     def get_all_products(self):
         """

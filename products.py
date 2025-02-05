@@ -17,17 +17,20 @@ class Product:
         :param quantity: Quantity of the product in stock.
         :param active: Boolean indicating if the product is active.
         """
-        self.name = name
-        if not isinstance(self.name, str) or not self.name:
+        
+        if not isinstance(name, str) or not name:
             raise Exception("Invalid Name")
+        self.name = name
 
-        self.price = price
-        if not isinstance(self.price, (int, float)) or self.price <= 0:
+        
+        if not isinstance(price, (int, float)) or price <= 0:
             raise Exception("Invalid Price")
+        self.price = price
 
-        self.quantity = quantity
-        if not isinstance(self.quantity, int) or self.quantity < 0:
+        
+        if not isinstance(quantity, int) or quantity < 0:
             raise Exception("Invalid Quantity")
+        self.quantity = quantity
 
         if not isinstance(active, bool):
             raise Exception("Invalid Active Status")
@@ -57,10 +60,7 @@ class Product:
 
         :return: True if the product is active, False otherwise.
         """
-        if self.active == True:
-            return True
-        else:
-            return False
+        return self.active
 
     def activate(self):
         """
