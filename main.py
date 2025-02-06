@@ -26,6 +26,7 @@ def main():
     best_buy = store.Store(product_list)
 
     while True:
+        
         start()
 
         user_input = int(input("Please choose a number: "))
@@ -38,14 +39,16 @@ def main():
         elif user_input == 2:
             best_buy.get_total_quantity()
         elif user_input == 3:
+            shopping_cart_sum = 0
             while True:
                 user_input_product = input("Which product do you want? ")
                 user_input_amount = input("What amount do you want? ")
                 if user_input_product == "" and user_input_amount == "":
                     break
-                best_buy.order(
-                    [(product_list[int(user_input_product) - 1], int(user_input_amount))])
-                print("Product added to the list")
+                print("Product added to cart!")
+                shopping_cart_sum += best_buy.order([(product_list[int(user_input_product) - 1], int(user_input_amount))])
+            print(f"Order made! Total payment: {shopping_cart_sum}$")
+            
 
         elif user_input == 4:
             break

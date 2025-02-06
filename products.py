@@ -91,10 +91,11 @@ class Product:
         :raises Exception: If the quantity is invalid or insufficient.
         """
         if not isinstance(quantity, int) or quantity <= 0:
-            raise Exception("Invalid Quantity")
+            print("Invalid Quantity")
         if quantity > self.quantity:
-            raise Exception("Insufficient Quantity")
-        total_price = quantity * self.price
-        self.set_quantity(self.quantity - quantity)
-        return total_price
+            print("Insufficient Quantity")
+        else:
+            total_price = quantity * self.price
+            self.set_quantity(self.quantity - quantity)
+            return total_price
     
