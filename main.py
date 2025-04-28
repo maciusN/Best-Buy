@@ -41,12 +41,21 @@ def main():
         elif user_input == 3:
             shopping_cart_sum = 0
             while True:
-                user_input_product = input("Which product do you want? ")
+                index = 1
+                for product in best_buy.get_all_products():
+                    print(str(index) + ". " + product.show())
+                    index += 1
+                
+                user_input_product = input("Which product # do you want? ")
                 user_input_amount = input("What amount do you want? ")
+                
                 if user_input_product == "" and user_input_amount == "":
                     break
-                print("Product added to cart!")
-                shopping_cart_sum += best_buy.order([(product_list[int(user_input_product) - 1], int(user_input_amount))])
+                try:
+                    shopping_cart_sum += best_buy.order([(best_buy.get_all_products()[int(user_input_product) - 1], int(user_input_amount))])
+                except (ValueError, IndexError):
+                    print("Error adding product!")
+                
             print(f"Order made! Total payment: {shopping_cart_sum}$")
             
 

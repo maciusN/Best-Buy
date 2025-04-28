@@ -80,7 +80,7 @@ class Product:
 
         :return: String representation of the product details.
         """
-        return f"{self.name}, Price: {self.price}, Quantity: {self.quantity}"
+        return f"{self.name}, Price: {self.price}$, Quantity: {self.quantity}"
 
     def buy(self, quantity) -> float:
         """
@@ -91,10 +91,15 @@ class Product:
         :raises Exception: If the quantity is invalid or insufficient.
         """
         if not isinstance(quantity, int) or quantity <= 0:
-            raise Exception("Invalid Quantity")
+            print("Invalid Quantity!")
+            print()
         if quantity > self.quantity:
-            raise Exception("Insufficient Quantity")
+            print("Insufficient Quantity!")
+            print()
+        else:
+            self.set_quantity(self.quantity - quantity)
+            
         total_price = quantity * self.price
-        self.set_quantity(self.quantity - quantity)
         return total_price
+  
     

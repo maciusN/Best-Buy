@@ -47,7 +47,7 @@ class Store:
         """
         self.list = []
         for product in self.products:
-            if product.active == True:
+            if product.active == True and product.quantity > 0:
                 self.list.append(product)
         return self.list
 
@@ -58,9 +58,6 @@ class Store:
         Args:
             shopping_list (list of tuples): A list of tuples where each tuple contains a product and its quantity.
 
-        Raises:
-            ValueError: If the product is not available in the store or is not active.
-
         Returns:
             float: The total price of the order.
         """
@@ -68,8 +65,6 @@ class Store:
         
         for product, quantity in shopping_list:
             if product not in self.products or not product.is_active():
-                raise ValueError(
-                    f"The product '{product.name}' is not available in the store.")
+                print(f"The product '{product.name}' is not available in the store.")
             sum_price += product.buy(quantity)
-
         return sum_price
