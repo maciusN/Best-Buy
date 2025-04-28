@@ -62,9 +62,10 @@ class Store:
             float: The total price of the order.
         """
         sum_price = 0
-        
+
         for product, quantity in shopping_list:
             if product not in self.products or not product.is_active():
-                print(f"The product '{product.name}' is not available in the store.")
+                print(
+                    f"The product '{product.name}' is not available in the store.")
             sum_price += product.buy(quantity)
         return sum_price

@@ -8,6 +8,7 @@ class Product:
     quantity (int): Quantity of the product in stock.
     active (bool): Boolean indicating if the product is active.
     """
+
     def __init__(self, name, price, quantity, active=True):
         """
         Initialize a new product instance.
@@ -17,17 +18,15 @@ class Product:
         :param quantity: Quantity of the product in stock.
         :param active: Boolean indicating if the product is active.
         """
-        
+
         if not isinstance(name, str) or not name:
             raise Exception("Invalid Name")
         self.name = name
 
-        
         if not isinstance(price, (int, float)) or price <= 0:
             raise Exception("Invalid Price")
         self.price = price
 
-        
         if not isinstance(quantity, int) or quantity < 0:
             raise Exception("Invalid Quantity")
         self.quantity = quantity
@@ -88,7 +87,6 @@ class Product:
 
         :param quantity: Quantity to buy.
         :return: Total price for the quantity bought.
-        :raises Exception: If the quantity is invalid or insufficient.
         """
         if not isinstance(quantity, int) or quantity <= 0:
             print("Invalid Quantity!")
@@ -98,8 +96,6 @@ class Product:
             print()
         else:
             self.set_quantity(self.quantity - quantity)
-            
+
         total_price = quantity * self.price
         return total_price
-  
-    
