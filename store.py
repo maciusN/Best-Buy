@@ -56,7 +56,7 @@ class Store:
         Process an order from the shopping list and calculate the total price.
 
         Args:
-            shopping_list (list of tuples): 
+            shopping_list (list of tuples):
             A list of tuples where each tuple contains a product and its quantity.
 
         Returns:
